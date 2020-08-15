@@ -15,10 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::post('/login', 'HomeController@login')->name('login');
 
+
+
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
+//Auth::routes();

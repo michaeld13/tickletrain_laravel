@@ -652,8 +652,6 @@ Emails With A Drip Campaign.</h1>
 
                             </div>
 
-
-
                             <ol class="carousel-indicators">
 
                                 <li data-target="#client-testimonial-carousel" data-slide-to="0" class="active bg-info">
@@ -673,7 +671,6 @@ Emails With A Drip Campaign.</h1>
                 </div>
 
             </section>
-
         </section>
 
     </div>

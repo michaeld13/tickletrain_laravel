@@ -10,8 +10,7 @@
     <!-- fonts CSS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,900&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/vendor/bootstrap/bootstrap.min.css')}}">
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <!-- Mega Menu CSS -->
@@ -30,7 +29,9 @@
     <section>
         @include('includes.header')
 
-        @yield('content')
+            @yield('content')
+
+            @include('includes.login')
 
         @include('includes.footer')
 
@@ -43,11 +44,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script type="text/javascript" src="{{asset('public/vendor/bootstrap//bootstrap.min.js')}}">
     </script>
     <script type="text/javascript" src="{{asset('public/webslidemenu/webslidemenu.js')}}"></script>
     <script type="text/javascript" src="{{asset('public/js/script.js')}}"></script>
+    <script type="text/javascript" src="{{asset('public/js/guest.js')}}"></script>
     <script type="text/javascript">
         
         $(document).ready(function(){
