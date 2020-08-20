@@ -27,8 +27,11 @@
 <body>
 
     <section>
-        @include('includes.header')
-
+        @if(Auth::check())
+            @include('includes.auth-header')
+        @else
+            @include('includes.header')
+        @endif
             @yield('content')
 
             @include('includes.login')

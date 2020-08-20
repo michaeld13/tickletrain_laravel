@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Activity;
 use App\User;
 use Auth;
 
@@ -39,6 +40,13 @@ class HomeController extends Controller
             if($user){
 
                 Auth::login($user, true);
+
+                Activity::insert([
+                    'TickleID' => $user->TickleID,
+                    'activity_type'=>'login',
+                    'message' => "Successfully login to your account",
+                ]);
+
                 return response()->json([ 
                     'status'=>1,
                     "message" => "success",
@@ -73,23 +81,14 @@ class HomeController extends Controller
     }
 
 
-    // add on  10-03-2015
-   
+    public function activity()
+    {
+        # code...
+        $activities = Activity::where('TickleID',Auth::user()->TickleID)
+                                ->orderBy('id','desc')
+                                ->get();
 
-    private function encryptIt($q) {
-        $cryptKey = 'qJB0rGtIn5UB1xG03efyCp';
-        $qEncoded = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($cryptKey), $q, MCRYPT_MODE_CBC, md5(md5($cryptKey))));
-        return( $qEncoded );
-    }
-    
-
-    // decrypt password 
-
-
-    private function decryptIt($q) {
-        $cryptKey = 'qJB0rGtIn5UB1xG03efyCp';
-        $qDecoded = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5($cryptKey), base64_decode($q), MCRYPT_MODE_CBC, md5(md5($cryptKey))), "\0");
-        return( $qDecoded );
+        return view('user.activity',compact('activities'));
     }
     
 

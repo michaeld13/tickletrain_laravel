@@ -1,5 +1,3 @@
-@import "common.css";
-
 body {
     background-color: #F7F7F7;
     background-image: linear-gradient(45deg, #efefef 0%, #F7F7F7 100%);
@@ -34,6 +32,6 @@ body {
 }
 
 .card-menu-item-icon {
-    color: #18C7C9;
+    color: #fb872b;
     font-size: 16px;
 }

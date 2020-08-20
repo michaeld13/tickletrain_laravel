@@ -6,17 +6,12 @@
 
                     <div class="container d-flex">
 
-                        @if (!Auth::check())
                         <button 
                          type="button" 
                          class="mr-2 ml-auto btn btn-outline-orange" data-toggle="modal"
                          data-target="#loginModal"
                         >Login</button>
                         <button type="button" class="btn badge-warning text-white bg-orange">Subscribe</button>
-                        @else
-                        <button type="button" class="mr-2 ml-auto btn bbadge-warning text-white bg-orange">Download Extension</button>
-                        @endif
-
 
 
                     </div>
@@ -44,7 +39,8 @@
                     <nav class="wsmenu clearfix ml-auto">
                         <ul class="wsmenu-list">
                             <li class="d-md-none">
-                                <button type="button" class="mr-2 ml-auto btn btn-outline-orange">Login</button>
+                                <button type="button" class="mr-2 ml-auto btn btn-outline-orange" data-toggle="modal"
+                         data-target="#loginModal" >Login</button>
                                 <button type="button" class="btn badge-warning text-white">Subscribe</button>
                             </li>
                             <li aria-haspopup="true"><a href="#" class="active">Home</a></li>
@@ -105,10 +101,6 @@
                             <li aria-haspopup="true"><a href="#">About us</a></li>
 
                             <li aria-haspopup="true"><a href="#">Contact </a></li>
-
-                            @if (Auth::check())
-                            <li aria-haspopup="true"><a href="{{route('logout')}}">Logout </a></li>
-                            @endif
 
                         </ul>
 
